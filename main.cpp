@@ -5,8 +5,45 @@
 //------------------------------
 
 // Write the assignment code here
+#include <iostream>
 
 
+class Real {
+  private:
+    int n{};
+  
+  public:
+    Real(int GetReal)
+      : n{GetReal}
+}; 
+
+
+class Complex : public Real{ 
+  private:
+    int Imag1{};
+    int Imag2{};
+
+  public:
+    Complex (int GetImaginary)
+      
+
+
+
+};
+
+class Surreal : public Real, public Complex
+{
+
+
+}; 
+
+{
+    // Why this operator defined within the constructor function body? 
+    // not sure where to put this trying to follow textbook for where these go. Where should this go?
+    
+  Real operator* (int n);
+    return GetReal; 
+}
 //------------------------------
 //   DO NOT MODIFY TEST CASES
 //------------------------------
