@@ -10,29 +10,59 @@
 
 class Real {
   private:
-    int n{};
-  
+    double n{};
+    double r{};
+
   public:
-    Real(int GetReal)
+    Real(double GetReal)
       : n{GetReal}
+
+  Real operator * (double n)
+  {
+      Real temp;
+      new.n = n + Real.n;
+      new.r = r + Real.r; 
+      return temp; 
+  }
 }; 
 
 
 class Complex : public Real{ 
   private:
-    int Imag1{};
-    int Imag2{};
+    double Imag1{};
 
   public:
-    Complex (int GetImaginary)
-      
+    Complex (double GetImaginary);
+    double GetReal{};
 
+Complex operator * (double Imag1)
+  {
+      Complex temp;
+      new.Imag1 = GetImaginary + Complex.GetImaginary;
+      new.Imag1 = r + Complex.r; 
+      return temp; 
+  }
 
 
 };
 
 class Surreal : public Real, public Complex
 {
+    private:
+    double Surr{};
+
+  public:
+    Surreal (double GetSurreal);
+    double GetReal{};
+    double GetImaginary{};
+
+Surreal operator * (double Surr)
+  {
+      Surreal temp;
+      new.Surr = GetSurreal + Surreal.GetSurreal;
+      new.r = r + Surreal.r; 
+      return temp; 
+  }
 
 
 }; 
@@ -41,8 +71,7 @@ class Surreal : public Real, public Complex
     // Why this operator defined within the constructor function body? 
     // not sure where to put this trying to follow textbook for where these go. Where should this go?
     
-  Real operator* (int n);
-    return GetReal; 
+  
 }
 //------------------------------
 //   DO NOT MODIFY TEST CASES
