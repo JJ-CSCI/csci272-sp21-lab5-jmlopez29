@@ -3,76 +3,44 @@
 //------------------------------
 #include "catch.hpp"
 //------------------------------
-
-// Write the assignment code here
-#include <iostream>
-
-
+//Write the assignment code here
 class Real {
-  private:
-    double n{};
-    double r{};
-
-  public:
-    Real(double GetReal)
-      : n{GetReal}
-
-  Real operator * (double n)
-  {
-      Real temp;
-      new.n = n + Real.n;
-      new.r = r + Real.r; 
-      return temp; 
+protected:
+  double a;
+public:
+     Real(double x) : a{x} {}//default constructor
+     double GetReal(){return a;}
+  Real operator*(double s) const {
+     Real r{a*s};
+     return r;
   }
-}; 
-
-
-class Complex : public Real{ 
-  private:
-    double Imag1{};
-
-  public:
-    Complex (double GetImaginary);
-    double GetReal{};
-
-Complex operator * (double Imag1)
-  {
-      Complex temp;
-      new.Imag1 = GetImaginary + Complex.GetImaginary;
-      new.Imag1 = r + Complex.r; 
-      return temp; 
-  }
-
-
 };
 
-class Surreal : public Real, public Complex
-{
-    private:
-    double Surr{};
+class Complex : public Real{
+protected:
+  double b;
+public:
+   Complex(double x, double y) : Real(x), b{y} {} double GetImaginary() {return b;}
+   Complex operator*(double s) const {
+     Complex r{a*s, b*s};
+     return r;
+   }
+};
 
-  public:
-    Surreal (double GetSurreal);
-    double GetReal{};
-    double GetImaginary{};
+class Surreal : public Complex {
+protected:
+  double c;
+public:
+     Surreal(double x, double y, double z) : Complex(x, y), c{z} {}
+     double GetSurreal() {return c;}
+     Surreal operator*(double s) const {
+       Surreal r{a*s, b*s, c*s};
+       return r;
+     }
+};
 
-Surreal operator * (double Surr)
-  {
-      Surreal temp;
-      new.Surr = GetSurreal + Surreal.GetSurreal;
-      new.r = r + Surreal.r; 
-      return temp; 
-  }
 
 
-}; 
-
-{
-    // Why this operator defined within the constructor function body? 
-    // not sure where to put this trying to follow textbook for where these go. Where should this go?
-    
-  
-}
 //------------------------------
 //   DO NOT MODIFY TEST CASES
 //------------------------------
